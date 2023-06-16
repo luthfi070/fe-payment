@@ -26,16 +26,17 @@ function App() {
     };
   }, []);
 
-  const bayar = () => {
-    axios
-      .post("http://localhost:3000/api/siswa/payment", {
-        harga: 40000,
-      })
-      .then((res) => {
-        // console.log(res.data.token);
+  const bayar = async () => {
+    const login = await axios.post(
+      "https://be5finalproject-production.up.railway.app/register",
+      {
+        email: "newaksndajfhn@gmail.com",
+        password: "user123",
+        name: "luthfi",
+      }
+    );
 
-        window.snap.pay(res.data.token);
-      });
+    console.log(login);
   };
 
   return (
